@@ -1,0 +1,61 @@
+.first{
+    margin-top:20px;
+}
+
+.img1 {
+    position:relative;
+    width: 300px;
+    height:250px;
+    margin-left:-10px;
+}
+
+
+.offers{
+    position:absolute;
+    width:200px;
+    height:100px;
+    background-color: rgba(163, 8, 194, 0.918);
+     margin-top:-8%;
+     margin-left: 3%;
+color:white;
+font-family:cursive;
+}
+
+.text2{
+    text-align: center;
+    margin-top: 20px;
+}
+.Images{
+    margin-top:4%;
+    background-image: linear-gradient(45deg,rgb(48, 238, 10),rgb(15, 38, 241));
+}
+
+.login{
+   width:50%;
+   height:50vh;
+   /* background-color: rgb(13, 20, 14); */
+   margin-left: 25%; 
+   margin-top: 2%;
+background-image: linear-gradient(50deg,black,red,blue);
+}
+.submit{
+    background-color: blue;
+    margin-left:40%;
+    border-radius: 4%;
+    border:none;
+    width:20%;
+    height: 6vh;
+    color:white;
+}
+
+.side{
+    width:20%;
+    height:410px;
+    color:white;
+    margin-left:40%;
+     margin-top:2%;
+     border-radius: 5%;
+     text-align: center;
+     background-image: linear-gradient(40deg,rgb(10, 177, 107),rgb(214, 20, 52));
+
+}

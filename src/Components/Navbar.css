@@ -1,0 +1,21 @@
+.navbar{
+    background-image: linear-gradient(50deg, blue,rgb(12, 168, 25),rgb(240, 12, 137));
+}
+.text1{
+display:flex;
+font-weight: bold;
+margin-top:2%;
+text-decoration: none;
+}
+
+.last{
+    display: flex;
+    justify-content: space-between;
+}
+
+.icons{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20%;
+    margin-top:20px;
+}
