@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { toast } from 'react-toastify';
+import { CartContext } from './CartContext';
 import Footer from "./Footer";
 const DecorList = () => {
   const [decorProducts, setDecorProducts] = useState([]);
   const [error, setError] = useState(null);
+  const { addToWishlist,addToCart } = useContext(CartContext);
+
 
   useEffect(() => {
      fetch('https://api.apify.com/v2/datasets/3SMCknkYWeSl8gQO6/items?clean=true&format=json')
@@ -18,19 +22,44 @@ const DecorList = () => {
         setError('Failed to fetch products'); // Provide a more user-friendly error message
       });
   }, []);
+  const handleAddToWishlist = (product) => {
+    addToWishlist({
+      id: product.id,
+      thumbnail: product.thumbnailImage,
+      title: product.title,
+      price: product.price.value,
+      brand: product.brand
+    });
+    toast.success(`${product.title} has been added to the wishlist!`);
+  };
+  const handleAddToCart = (product) => {
+    addToCart({
+      id: product.id,
+      thumbnail: product.thumbnailImage,
+      title: product.title,
+      price: product.price.value,
+      brand: product.brand
+    });
+    toast.success(`${product.title} has been added to the Cart!`);
+  };
 
-  if (error) {
-    return <p>{error}</p>; // Display the error message if fetching fails
-  }
-const DecorCard = ({ decor }) => {
-  if (!decor) {
-    return null;
-  }
 
-  // Destructuring product properties based on assumed API response structure
-  const { thumbnailImage, title, brand, price, stars } = decor;
+//   if (error) {
+//     return <p>{error}</p>; // Display the error message if fetching fails
+//   }
+// const DecorCard = ({ decor }) => {
+//   if (!decor) {
+//     return null;
+//   }
 
-  return (
+//   // Destructuring product properties based on assumed API response structure
+//   const { thumbnailImage, title, brand, price, stars } = decor;
+
+//   return (
+  const DecorCard = ({ decor }) => {
+    const { thumbnailImage, title, brand, price, stars } = decor;
+
+    return (
     <div className="col">
       <div className="card" style={{boxShadow:"0px 0px 5px red"}}>
         <img src={thumbnailImage} style={{width:"250px",height:"180px"}} className="card-img-top w-40" alt={`${title} Poster`} />
@@ -41,6 +70,8 @@ const DecorCard = ({ decor }) => {
             <strong>Price:</strong> {price.value} {price.currency}
           </p>
           <p className="card-text"><strong>stars:</strong> {stars}</p>
+          <button onClick={() => handleAddToCart(decor)} className="btn btn-primary ms-2" style={{ width: "60px" }}>Bag</button>
+            <button onClick={() => handleAddToWishlist(decor)} className="btn btn-danger ms-2" style={{width:"95px"}}>Wishlist</button>
         </div>
       </div>
     </div>

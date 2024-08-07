@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 const LoginForm = () => {
   const [formState, setFormState] = useState({
     email: "",
@@ -28,7 +27,7 @@ const LoginForm = () => {
       emailError = "This is invalid!";
     }
 
-    setError({ emailError, passwordError: error.passwordError });
+    setError((prevError) => ({ ...prevError, emailError }));
     setFormValid(valid);
 
     return valid;
@@ -46,7 +45,7 @@ const LoginForm = () => {
       passwordError = "Enter a password of at least 6 characters";
     }
 
-    setError({ emailError: error.emailError, passwordError });
+    setError((prevError) => ({ ...prevError, passwordError }));
     setFormValid(valid);
 
     return valid;
@@ -115,7 +114,7 @@ const LoginForm = () => {
           />
           <p style={{ color: "red" }}>{error.passwordError}</p>
 
-          <button className="submit" type="button">Submit</button>
+          <button className="submit" type="submit">Submit</button>
         </form>
       </div>
 
@@ -141,11 +140,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
-
-
-
-
-
-
-
-

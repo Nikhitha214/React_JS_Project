@@ -13,13 +13,16 @@ import Wishlist from "./Components/Wishlist";
 import Bag from "./Components/Bag";
 import Furnitures from "./Components/Furnitures";
 import Profile from "./Components/Profile";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const App = () => {
-
+  
   return (
       <BrowserRouter>
       <Navbar />
-
+      <ToastContainer />
       <Routes>
         <Route path="/Men" element={<Men />} /> 
         <Route path="/Women" element={<Women />} />
