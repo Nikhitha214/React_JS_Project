@@ -1,3 +1,4 @@
+
 import React, { createContext, useState } from 'react';
 
 export const CartContext = createContext();
@@ -34,12 +35,17 @@ export const CartProvider = ({ children }) => {
       return prevCart;
     });
   };
-  const addToWishlist = (product) => {
-        setWishlist([...wishlist, product]);
-      };
 
+  const clearCart = () => {
+    setCart([]);
+  };
+
+  const addToWishlist = (product) => {
+            setWishlist([...wishlist, product]);
+          };
+    
   return (
-    <CartContext.Provider value={{ cart,wishlist, addToCart, removeFromCart,addToWishlist }}>
+    <CartContext.Provider value={{ cart,wishlist,addToCart, removeFromCart, clearCart,addToWishlist }}>
       {children}
     </CartContext.Provider>
   );
