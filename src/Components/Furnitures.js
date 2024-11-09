@@ -81,7 +81,7 @@ const FurnituresList = () => {
 
 
   return (
-    <div className="container mt-2 bg-dark" style={{width:"100%",height:"675vh"}}>
+    <div className="container mt-2 bg-dark" style={{width:"100%",height:"775vh"}}>
       <div className="row">
         {furnituresProducts.length > 0 ? (
           furnituresProducts.map(furnitures => (

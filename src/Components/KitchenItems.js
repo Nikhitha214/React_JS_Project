@@ -62,7 +62,7 @@ const KitchenList = () => {
   // }
 
   return (
-    <div className="container mt-2 bg-primary" style={{width:"100%",height:"465vh"}}>
+    <div className="container mt-2 bg-primary" style={{width:"100%",height:"525vh"}}>
       <div className="row">
         {Array.isArray(kitchenProducts) && kitchenProducts.map(kitchen => (
           <KitchenCard key={kitchen.id} kitchen={kitchen} />

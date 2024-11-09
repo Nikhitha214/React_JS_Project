@@ -75,13 +75,8 @@ const ElectronicList = () => {
   ) : null
 );
 
-
-  // if (error) {
-  //   return <p>Failed to fetch products</p>;
-  // }
-
   return (
-    <div className="container mt-2 bg-warning" style={{width:"100%",height:"365vh"}}>
+    <div className="container mt-2 bg-warning" style={{width:"100%",height:"410vh"}}>
       <div className="row">
         {Array.isArray(electronicProducts) && electronicProducts.map(electronic => (
           <ElectronicCard key={electronic.id} electronic={electronic} />

@@ -81,7 +81,7 @@ const KidsList = () => {
   };
 
   return (
-    <div className="container mt-2" style={{ width: "100%", height: "675vh", backgroundImage: "linear-gradient(50deg, rgb(19, 183, 224), rgb(240, 12, 137))" }}>
+    <div className="container mt-2" style={{ width: "100%", height: "715vh", backgroundImage: "linear-gradient(50deg, rgb(19, 183, 224), rgb(240, 12, 137))" }}>
       <div className="row">
         {kidsProducts.length > 0 ? (
           kidsProducts.map(kids => (
